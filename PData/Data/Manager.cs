@@ -81,7 +81,7 @@ namespace PData.Data
             {
                 DataRow row = TestTable.NewRow();
                 row[0] = "S" + r.Next(10000, 99999);
-                row[1] = RandomDay();
+                row[1] = "C" + r.Next(10000, 99999);
                 row[2] = RandomString(Problems);
                 row[3] = RandomString(Devices);
                 row[4] = r.Next(1, 365) + " dagar";
