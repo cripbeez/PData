@@ -16,12 +16,12 @@ namespace PData.GUI
         {
             InitializeComponent();
         }
-
         public new void Show()
         {
             base.ShowDialog();
         }
 
+        #region "Methods"
         public void ShowLeftMenu()
         {
             if (leftMenu.Width > 0)
@@ -95,6 +95,54 @@ namespace PData.GUI
             dataGridView1.Enabled = true;
             bottomMenuPanel.Hide();
         }
+        public void AlignBottomMenuControls()
+        {
+            Point pt = new Point();
+            pt.X = bottomMenuPanel.Width - bottomMenuControlsPanel.Width / 2;
+            pt.Y = bottomMenuPanel.Height / 2 - bottomMenuControlsPanel.Height;
+            bottomMenuControlsPanel.Location = pt;
+        }
+        
+        public void SetupStatusButtonContextMenu()
+        {
+            statusBtnContextMenu.Items.Clear();
+
+            foreach (string status in Data.Manager.Statuses)
+                statusBtnContextMenu.Items.Add(status);
+
+            foreach (ToolStripItem item in statusBtnContextMenu.Items)
+                item.Click += (sender, e) =>
+                {
+                    if(dataGridView1.SelectedRows.Count == 1)
+                    {
+                        DataGridViewRow row = dataGridView1.SelectedRows[0];
+                        DataGridViewColumn col = dataGridView1.Columns["Status"];
+                        DataGridViewCell cell = dataGridView1[col.Index, row.Index];
+
+                        cell.Value = item.Text.ToString();
+                    }
+                };
+        }
+        public void SetupAssignedButtonContextMenu()
+        {
+            assignedBtnContextMenu.Items.Clear();
+
+            foreach (string signature in Data.Manager.Signatures)
+                assignedBtnContextMenu.Items.Add(signature);
+
+            foreach (ToolStripItem item in assignedBtnContextMenu.Items)
+                item.Click += (sender, e) =>
+                {
+                    if (dataGridView1.SelectedRows.Count == 1)
+                    {
+                        DataGridViewRow row = dataGridView1.SelectedRows[0];
+                        DataGridViewColumn col = dataGridView1.Columns["Ansvarig"];
+                        DataGridViewCell cell = dataGridView1[col.Index, row.Index];
+
+                        cell.Value = item.Text.ToString();
+                    }
+                };
+        }
 
         public void ShowSearchMenu()
         {
@@ -115,7 +163,7 @@ namespace PData.GUI
             this.KeyPreview = true;
             searchBoxPanel.Hide();
         }
-
+        
         private int CurrentColumn = 0;
         private void MoveColumnLeft()
         {
@@ -145,7 +193,9 @@ namespace PData.GUI
         {
             dataGridView1.Sort(dataGridView1.Columns[CurrentColumn], ListSortDirection.Descending);
         }
+        #endregion
 
+        #region "Events"
         private void Overview_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -156,6 +206,10 @@ namespace PData.GUI
 
             Data.Manager.Setup();
             this.dataGridView1.DataSource = Data.Manager.TestTable;
+
+            SetupAssignedButtonContextMenu();
+            SetupStatusButtonContextMenu();
+            AlignBottomMenuControls();
         }
         private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -165,6 +219,9 @@ namespace PData.GUI
 
                 foreach (DataGridViewColumn col in dataGridView.Columns)
                     col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                CurrentColumn = 0;
+                SortColumnAsc();
             }
         }
         private void Overview_KeyDown(object sender, KeyEventArgs e)
@@ -258,14 +315,35 @@ namespace PData.GUI
                     filter.Append("[" + column.Name + "] like '%" + searchText + "%'");
                 }
             }
-            
-            (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = filter.ToString();
+
+            try { (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = filter.ToString(); }
+            catch { }
         }
         private void searchBoxTxt_KeyDown(object sender, KeyEventArgs e)
         {
             if (sender is TextBox box)
                 if (e.KeyCode == Keys.Enter)
                     HideSearchMenu();
+        }
+        #endregion
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                Point pt = new Point(btn.Width - 10, btn.Height - 10);
+                pt = btn.PointToScreen(pt);
+                btn.ContextMenuStrip.Show(pt);
+            }
+        }
+        private void btnAssigned_Click(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+            {
+                Point pt = new Point(btn.Width - 10, btn.Height - 10);
+                pt = btn.PointToScreen(pt);
+                btn.ContextMenuStrip.Show(pt);
+            }
         }
     }
 }

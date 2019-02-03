@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.leftMenu = new System.Windows.Forms.Panel();
             this.leftMenuBottomPanel = new System.Windows.Forms.Panel();
             this.leftMenuTopPanel = new System.Windows.Forms.Panel();
@@ -41,11 +42,18 @@
             this.searchBoxPanel = new System.Windows.Forms.Panel();
             this.searchBoxTxt = new System.Windows.Forms.TextBox();
             this.bottomMenuPanel = new System.Windows.Forms.Panel();
+            this.bottomMenuControlsPanel = new System.Windows.Forms.Panel();
+            this.btnAssigned = new System.Windows.Forms.Button();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.statusBtnContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.assignedBtnContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.leftMenu.SuspendLayout();
             this.leftMenuTopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.containerPanel.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
+            this.bottomMenuPanel.SuspendLayout();
+            this.bottomMenuControlsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // leftMenu
@@ -101,23 +109,23 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeight = 60;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
@@ -127,22 +135,22 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowTemplate.Height = 60;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -196,12 +204,65 @@
             // 
             // bottomMenuPanel
             // 
+            this.bottomMenuPanel.Controls.Add(this.bottomMenuControlsPanel);
             this.bottomMenuPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomMenuPanel.Location = new System.Drawing.Point(0, 227);
             this.bottomMenuPanel.Name = "bottomMenuPanel";
+            this.bottomMenuPanel.Padding = new System.Windows.Forms.Padding(5);
             this.bottomMenuPanel.Size = new System.Drawing.Size(875, 263);
             this.bottomMenuPanel.TabIndex = 1;
             this.bottomMenuPanel.Visible = false;
+            // 
+            // bottomMenuControlsPanel
+            // 
+            this.bottomMenuControlsPanel.Controls.Add(this.btnAssigned);
+            this.bottomMenuControlsPanel.Controls.Add(this.btnStatus);
+            this.bottomMenuControlsPanel.Location = new System.Drawing.Point(269, 74);
+            this.bottomMenuControlsPanel.Name = "bottomMenuControlsPanel";
+            this.bottomMenuControlsPanel.Size = new System.Drawing.Size(304, 116);
+            this.bottomMenuControlsPanel.TabIndex = 1;
+            // 
+            // btnAssigned
+            // 
+            this.btnAssigned.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnAssigned.ContextMenuStrip = this.assignedBtnContextMenu;
+            this.btnAssigned.FlatAppearance.BorderSize = 0;
+            this.btnAssigned.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAssigned.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnAssigned.ForeColor = System.Drawing.Color.White;
+            this.btnAssigned.Location = new System.Drawing.Point(155, 17);
+            this.btnAssigned.Name = "btnAssigned";
+            this.btnAssigned.Size = new System.Drawing.Size(128, 83);
+            this.btnAssigned.TabIndex = 1;
+            this.btnAssigned.Text = "Byt ansvarig";
+            this.btnAssigned.UseVisualStyleBackColor = false;
+            this.btnAssigned.Click += new System.EventHandler(this.btnAssigned_Click);
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.btnStatus.ContextMenuStrip = this.statusBtnContextMenu;
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnStatus.ForeColor = System.Drawing.Color.White;
+            this.btnStatus.Location = new System.Drawing.Point(21, 17);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Size = new System.Drawing.Size(128, 83);
+            this.btnStatus.TabIndex = 0;
+            this.btnStatus.Text = "Byt projektstatus";
+            this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.btnStatus_Click);
+            // 
+            // statusBtnContextMenu
+            // 
+            this.statusBtnContextMenu.Name = "statusBtnContextMenu";
+            this.statusBtnContextMenu.Size = new System.Drawing.Size(61, 4);
+            // 
+            // assignedBtnContextMenu
+            // 
+            this.assignedBtnContextMenu.Name = "statusBtnContextMenu";
+            this.assignedBtnContextMenu.Size = new System.Drawing.Size(61, 4);
             // 
             // Overview
             // 
@@ -229,6 +290,8 @@
             this.containerPanel.ResumeLayout(false);
             this.searchBoxPanel.ResumeLayout(false);
             this.searchBoxPanel.PerformLayout();
+            this.bottomMenuPanel.ResumeLayout(false);
+            this.bottomMenuControlsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,5 +307,10 @@
         private System.Windows.Forms.Panel bottomMenuPanel;
         private System.Windows.Forms.TextBox searchBoxTxt;
         private System.Windows.Forms.Panel searchBoxPanel;
+        private System.Windows.Forms.Panel bottomMenuControlsPanel;
+        private System.Windows.Forms.Button btnStatus;
+        private System.Windows.Forms.Button btnAssigned;
+        private System.Windows.Forms.ContextMenuStrip statusBtnContextMenu;
+        private System.Windows.Forms.ContextMenuStrip assignedBtnContextMenu;
     }
 }

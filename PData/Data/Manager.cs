@@ -11,7 +11,7 @@ namespace PData.Data
     {
         public static DataTable TestTable;
 
-        private static string[] devices =
+        public static string[] Devices =
         {
             "iPhone 4",
             "iPhone 5",
@@ -27,7 +27,7 @@ namespace PData.Data
             "Samsung S8",
             "Samsung S9"
         };
-        private static string[] signatures =
+        public static string[] Signatures =
         {
             "JB",
             "MK",
@@ -35,14 +35,14 @@ namespace PData.Data
             "RL",
             "TÅ"
         };
-        private static string[] problems =
+        public static string[] Problems =
         {
             "Glasbyte",
             "Batteribyte",
             "Felsökning",
             "Filöverföring"
         };
-        private static string[] statuses =
+        public static string[] Statuses =
         {
             "P - Påbörjad",
             "V - Väntar",
@@ -82,11 +82,11 @@ namespace PData.Data
                 DataRow row = TestTable.NewRow();
                 row[0] = "S" + r.Next(10000, 99999);
                 row[1] = RandomDay();
-                row[2] = RandomString(problems);
-                row[3] = RandomString(devices);
+                row[2] = RandomString(Problems);
+                row[3] = RandomString(Devices);
                 row[4] = r.Next(1, 365) + " dagar";
-                row[5] = RandomString(statuses);
-                row[6] = RandomString(signatures);
+                row[5] = RandomString(Statuses);
+                row[6] = RandomString(Signatures);
 
                 TestTable.Rows.Add(row);
             }
