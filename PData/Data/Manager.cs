@@ -11,6 +11,45 @@ namespace PData.Data
     {
         public static DataTable TestTable;
 
+        private static string[] devices =
+        {
+            "iPhone 4",
+            "iPhone 5",
+            "iPhone 6",
+            "iPhone 7",
+            "iPhone 8",
+            "iPhone X",
+            "Samsung S3",
+            "Samsung S4",
+            "Samsung S5",
+            "Samsung S6",
+            "Samsung S7",
+            "Samsung S8",
+            "Samsung S9"
+        };
+        private static string[] signatures =
+        {
+            "JB",
+            "MK",
+            "CM",
+            "RL",
+            "TÅ"
+        };
+        private static string[] problems =
+        {
+            "Glasbyte",
+            "Batteribyte",
+            "Felsökning",
+            "Filöverföring"
+        };
+        private static string[] statuses =
+        {
+            "P - Påbörjad",
+            "V - Väntar",
+            "K - Klarrapport",
+            "A - Avbokad"
+        };
+
         private static Random r = new Random();
         private static DateTime RandomDay()
         {
@@ -18,26 +57,9 @@ namespace PData.Data
             int range = (DateTime.Today - start).Days;
             return start.AddDays(r.Next(range));
         }
-        private static string RandomDevice()
+        private static string RandomString(string[] array)
         {
-            string[] devices =
-            {
-                "iPhone 4",
-                "iPhone 5",
-                "iPhone 6",
-                "iPhone 7",
-                "iPhone 8",
-                "iPhone X",
-                "Samsung S3",
-                "Samsung S4",
-                "Samsung S5",
-                "Samsung S6",
-                "Samsung S7",
-                "Samsung S8",
-                "Samsung S9"
-            };
-
-            return devices[r.Next(0, devices.Length - 1)];
+            return array[r.Next(0, array.Length - 1)];
         }
 
         public static void Setup()
@@ -50,7 +72,9 @@ namespace PData.Data
                 new DataColumn("Kund"),
                 new DataColumn("Beskrivning"),
                 new DataColumn("Identitet"),
-                new DataColumn("Ålder")
+                new DataColumn("Ålder"),
+                new DataColumn("Status"),
+                new DataColumn("Ansvarig")
             });
 
             for (int i = 0; i < 100; ++i)
@@ -58,9 +82,11 @@ namespace PData.Data
                 DataRow row = TestTable.NewRow();
                 row[0] = "S" + r.Next(10000, 99999);
                 row[1] = RandomDay();
-                row[2] = "Problem";
-                row[3] = RandomDevice();
+                row[2] = RandomString(problems);
+                row[3] = RandomString(devices);
                 row[4] = r.Next(1, 365) + " dagar";
+                row[5] = RandomString(statuses);
+                row[6] = RandomString(signatures);
 
                 TestTable.Rows.Add(row);
             }
